@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Growthme | 그로스미 경영컨설팅</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="정책자금·기업재무·지식창업·중동 진출까지, 중소기업·스타트업을 위한 Growthme(그로스미) 경영컨설팅입니다.">
+  <style>
+    :root {
+      --bg: #0b1320;
+      --bg-alt: #111827;
+      --accent: #12b3b3;
+      --accent-soft: rgba(18, 179, 179, 0.1);
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --card: #111827;
+      --border: #1f2933;
+      --radius-lg: 18px;
+      --radius-sm: 10px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 20px 64px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #4ef1e1, #0ea5e9 40%, #0369a1 80%);
+      box-shadow: 0 0 24px rgba(45, 212, 191, 0.5);
+    }
+
+    .logo-text-main {
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      font-size: 20px;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 13px;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    nav a:hover {
+      background: rgba(148, 163, 184, 0.2);
+      color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 52px;
+    }
+
+    .hero-title-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 11px;
+      margin-bottom: 14px;
+    }
+
+    .hero-title-tag span {
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero h1 {
+      font-size: clamp(26px, 3vw, 32px);
+      margin-bottom: 16px;
+    }
+
+    .hero h1 strong {
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      outline: none;
+      background: linear-gradient(135deg, #0ea5e9, #14b8a6);
+      color: #0b1120;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(34, 211, 238, 0.35);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(34, 211, 238, 0.45);
+    }
+
+    .btn-secondary {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 12px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s, color 0.15s;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(15, 23, 42, 0.9);
+      border-color: var(--accent-soft);
+      color: var(--text);
+    }
+
+    .hero-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .hero-meta strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, #1f2937, #020617 70%);
+      border-radius: 22px;
+      padding: 20px 18px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .hero-card-title {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-card-main {
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      color: var(--text-muted);
+    }
+
+    .hero-card-foot {
+      border-top: 1px dashed rgba(148, 163, 184, 0.35);
+      padding-top: 10px;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .section-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+    }
+
+    .card-tag {
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .card h3 {
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-left: 0;
+    }
+
+    .card ul li::before {
+      content: "•";
+      margin-right: 6px;
+      color: var(--accent);
+    }
+
+    .stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .profile-card {
+      display: grid;
+      gap: 12px;
+    }
+
+    .profile-name {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .profile-role {
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .profile-list {
+      font-size: 12px;
+      color: var(--text-muted);
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .profile-list li::before {
+      content: "–";
+      margin-right: 4px;
+      color: var(--accent);
+    }
+
+    .contact {
+      margin-top: 20px;
+    }
+
+    .contact-box {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      display: grid;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .contact-highlight {
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 24px;
+      font-size: 13px;
+    }
+
+    .footer {
+      margin-top: 36px;
+      font-size: 11px;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      nav {
+        font-size: 12px;
+        flex-wrap: wrap;
+      }
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .page {
+        padding: 20px 16px 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="logo-wrap">
+        <div class="logo-mark"></div>
+        <div>
+          <div class="logo-text-main">Growthme</div>
+          <div class="logo-text-sub">그로스미 경영컨설팅</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#services">Business Area</a>
+        <a href="#why">Why Growthme</a>
+        <a href="#profile">Profile</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div>
+          <div class="hero-title-tag">
+            <span></span> 중소기업·스타트업 성장 파트너
+          </div>
+          <h1>
+            정책자금·기업재무·중동 및 해외시장 진출까지,<br />
+            <strong>Growthme(그로스미)</strong>가 함께합니다.
+          </h1>
+          <p class="hero-sub">
+            인력 채용 없이도 전담 경영 파트너를 두는 것처럼 !.<br />
+            지식기반 창업, 정책자금과 재무관리, 중동을 비롯한 해외사업까지<br />
+            한 번에 연결되는 경영컨설팅 서비스를 제공합니다.
+          </p>
+          <div class="hero-actions">
+            <a href="#contact"><button class="btn-primary">상담 문의하기</button></a>
+            <a href="#services"><button class="btn-secondary">서비스 영역 보기</button></a>
+          </div>
+          <div class="hero-meta">
+            현재 <strong>중동지역학(경제학) 박사과정</strong>과<br />
+            다수의 정부지원사업·정책자금 다양한 실무 경험을 바탕으로 컨설팅을 제공합니다.
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div class="hero-card-title">Growthme 한눈에 보기</div>
+          <div class="hero-card-main">
+            중소기업·스타트업의
+            <strong>자금·전략·해외 진출</strong>을<br />
+            동시에 다루는 실무형 경영 파트너입니다.
+          </div>
+          <div class="hero-pills">
+            <div class="pill">정책자금·보증 컨설팅</div>
+            <div class="pill">기업 재무·자금관리</div>
+            <div class="pill">스타트업·지식창업</div>
+            <div class="pill">중동(UAE·GCC) 시장</div>
+            <div class="pill">ODA·해외 프로젝트 경험</div>
+          </div>
+          <div class="hero-card-foot">
+            린스타트업·예비창업패키지·청년창업사관학교·도약패키지 등<br />
+            다수 정부지원사업 선정 및 수행 경험을 기반으로,<br />
+            <strong>심사관의 시각에서 사업을 함께 설계</strong>합니다.
+          </div>
+        </aside>
+      </section>
+
+      <!-- About & Business Area -->
+      <section id="about" class="grid-2">
+        <div>
+          <h2 class="section-title">About Growthme</h2>
+          <p class="section-sub">
+            Growthme(그로스미)는 자금 조달과 해외 확장을 동시에 고민하는
+            중소기업·스타트업을 위한<br />경영컨설팅 파트너입니다.
+          </p>
+          <div class="card">
+            <p>
+              단순히 “서류를 대신 써주는 대행사”가 아닌,<br />
+              기업의 단계·재무 구조·시장 방향을 함께 검토하고<br />
+              <strong>실행 가능한 성장 시나리오</strong>를 설계합니다.
+            </p>
+            <p>
+              특히 <strong>정책자금·보증기관</strong>과
+              <strong>중동지역 비즈니스</strong>에 특화되어 있어,<br />
+              내수와 해외를 잇는 중장기 전략 수립에 강점을 가지고 있습니다.
+            </p>
+          </div>
+        </div>
+
+        <div id="services">
+          <h2 class="section-title">Business Area</h2>
+          <p class="section-sub">
+            Growthme가 제공하는 핵심 컨설팅 영역입니다.
+          </p>
+          <div class="stack">
+            <div class="card">
+              <div class="card-tag">01</div>
+              <h3>정책자금·기업재무 컨설팅</h3>
+              <p>
+                기업의 성장 단계와 재무 구조를 분석하여,  
+                적합한 정책자금·보증·대출 구조를 함께 설계합니다.
+              </p>
+              <ul>
+                <li>중진공·소진공·기보·신보 등 기관별 전략 수립</li>
+                <li>사업계획서·자금사용계획서·보고서 작성 지원</li>
+                <li>재무 구조 진단 및 개선 방향 제안</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="card-tag">02</div>
+              <h3>스타트업·지식창업 및 경영전략 컨설팅</h3>
+              <p>
+                아이템·시장·조직 구조를 함께 점검하며  
+                지식 기반 창업과 스타트업의 실행 전략을 설계합니다.
+              </p>
+              <ul>
+                <li>린스타트업 관점의 사업모델 검증 및 고도화</li>
+                <li>예비·초기 창업자 대상 지식창업 모델 설계</li>
+                <li>정부지원 R&D·사업화 과제 기획 및 피드백</li>
+              </ul>
+            </div>
+
+            <div class="card">
+              <div class="card-tag">03</div>
+              <h3>중동 중심 해외시장 진출·운영 지원</h3>
+              <p>
+                중동(특히 UAE·GCC) 시장을 중심으로  
+                시장 조사부터 파트너 발굴, 운영 이슈까지 동행합니다.
+              </p>
+              <ul>
+                <li>중동·아랍권 시장 조사 및 진출 전략 자문</li>
+                <li>현지 파트너·바이어 커뮤니케이션 및 실무 지원</li>
+                <li>ODA·해외 프로젝트 경험 기반 실행 컨설팅</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Growthme & Profile -->
+      <section id="why" class="grid-2">
+        <div>
+          <h2 class="section-title">Why Growthme</h2>
+          <p class="section-sub">
+            그로스미와 함께했을 때, 기업이 얻을 수 있는 차별화된 가치입니다.
+          </p>
+          <div class="card">
+            <h3>1. 현장에서 검증된 정책자금·지원사업 경험</h3>
+            <p>
+              린스타트업, 예비창업패키지, 청년창업사관학교, 도약패키지 등  
+              다수 정부지원사업 선정 및 수행 경험을 보유하고 있습니다.
+            </p>
+            <p>
+              단순히 “신청하는 방법”이 아니라,  
+              <strong>심사 기준과 심사자의 시각</strong>에서 사업을 함께 설계하는 것이 강점입니다.
+            </p>
+          </div>
+          <div class="card">
+            <h3>2. 연구와 실무를 겸비한 컨설팅</h3>
+            <p>
+              한국외국어대학교 국제지역학대학원 중동지역학(경제학) 박사과정에서  
+              중동 비즈니스·정책·경제 환경을 연구하며,
+              실제 현장에서의 해외사업 경험을 함께 쌓아가고 있습니다.
+            </p>
+            <p>
+              이론과 데이터, 그리고 현장 경험을 연결하여  
+              <strong>실행 가능한 전략</strong>으로 제시합니다.
+            </p>
+          </div>
+          <div class="card">
+            <h3>3. 인력 채용 없이 누리는 전담 파트너십</h3>
+            <p>
+              전담 인력을 고용하기에는 부담이 큰 기업을 위해  
+              인건비 대비 효율적인 <strong>프랙셔널 경영 파트너</strong> 역할을 수행합니다.
+            </p>
+            <p>
+              필요한 시점에, 필요한 만큼 전문가를 활용할 수 있도록  
+              유연한 형태의 컨설팅을 제공합니다.
+            </p>
+          </div>
+        </div>
+
+        <div id="profile">
+          <h2 class="section-title">Profile</h2>
+          <p class="section-sub">Growthme를 이끄는 사람입니다.</p>
+          <div class="card profile-card">
+            <div>
+              <div class="profile-name">김승혁</div>
+              <div class="profile-role">대표 · 경영컨설턴트</div>
+            </div>
+            <ul class="profile-list">
+              <li>한국외국어대학교 국제지역대학원 중동지역학(경제학) 박사과정</li>
+              <li>린스타트업·예비창업패키지·청년창업사관학교·도약패키지 등 정부지원사업 다수 선정</li>
+              <li>중소벤처기업진흥공단·소상공인시장진흥공단·기술보증기금·신용보증재단 등 정책자금·보증 연계 경험</li>
+              <li>중동지역 ODA·해외 프로젝트 실무 경험 (이라크 재건사업, 알제리 기술지원 등)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="contact">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-sub">
+          간단한 소개와 문의 내용을 보내주시면, 검토 후 개별적으로 연락드리겠습니다.
+        </p>
+        <div class="contact-box">
+          <div class="contact-highlight">
+            우리 회사의 자금·전략·해외 진출에 대해  
+            한 번 점검해 보고 싶으시다면 아래 연락처로 편하게 문의 주세요.
+          </div>
+          <div class="contact-row">
+            <div>이메일: <strong>ceo@growthme.com</strong></div>
+            <div>연락처: <strong>010-4985-7946</strong></div>
+          </div>
+          <div style="font-size: 12px;">
+            메일 제목에 <strong>[컨설팅 문의]</strong>를 포함해 주시면 더 빠르게 확인할 수 있습니다.<br />
+            (회사명 / 담당자명 / 연락 가능한 시간대 / 간단한 문의 내용을 함께 적어주세요.)
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>© <span id="year"></span> Growthme · 그로스미 경영컨설팅</div>
+      <div>Policy Funds · Corporate Finance · Startup · Middle East Business</div>
+    </footer>
+  </div>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
