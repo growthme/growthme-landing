@@ -381,7 +381,86 @@
       .page {
         padding: 20px 16px 40px;
       }
-    }
+    }/* ===== Profile 섹션 레이아웃 ===== */
+
+/* 사진 + 텍스트 가로 배치 */
+.profile-card .profile-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* 프로필 사진을 작게 동그랗게 */
+.profile-card img.profile-photo {
+  width: 80px !important;   /* 80 → 96, 100 등으로 바꾸면 크기 조절 가능 */
+  height: 80px !important;
+  border-radius: 999px !important;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* 카드 안 이미지 100%로 늘어나는 기본 규칙 무력화 */
+.card.profile-card img {
+  width: auto !important;
+  max-width: none !important;
+}
+
+/* 이름/직책 약간 강조 */
+.profile-name {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.profile-role {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+/* 모바일에서는 세로 정렬 */
+@media (max-width: 768px) {
+  .profile-card .profile-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-card .profile-wrapper > div {
+    text-align: left;
+  }
+}
+
+        /* ===== 전역 폰트 사이즈 조정 ===== */
+
+/* 기본 본문 크기 */
+body {
+  font-size: 15px;      /* 전체를 한 단계 키우는 느낌 (기존보다 1~2px 큼) */
+  line-height: 1.8;
+}
+
+/* 섹션 제목, 부제목 약간 키우기 */
+.section-title {
+  font-size: 24px;
+}
+
+.section-sub {
+  font-size: 14px;
+}
+
+/* 카드 안 글(리스트, 문단) 기본값 */
+.card p,
+.card li {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* 이미 설정해둔 hero-meta도 조금 더 크게 보이도록 */
+.hero-meta {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
   </style>
 </head>
 <body>
@@ -619,83 +698,3 @@
   </script>
 </body>
 </html>
-
-/* ===== Profile 섹션 레이아웃 ===== */
-
-/* 사진 + 텍스트 가로 배치 */
-.profile-card .profile-wrapper {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-/* 프로필 사진을 작게 동그랗게 */
-.profile-card img.profile-photo {
-  width: 80px !important;   /* 80 → 96, 100 등으로 바꾸면 크기 조절 가능 */
-  height: 80px !important;
-  border-radius: 999px !important;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-/* 카드 안 이미지 100%로 늘어나는 기본 규칙 무력화 */
-.card.profile-card img {
-  width: auto !important;
-  max-width: none !important;
-}
-
-/* 이름/직책 약간 강조 */
-.profile-name {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-
-.profile-role {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-/* 모바일에서는 세로 정렬 */
-@media (max-width: 768px) {
-  .profile-card .profile-wrapper {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .profile-card .profile-wrapper > div {
-    text-align: left;
-  }
-}
-
-        /* ===== 전역 폰트 사이즈 조정 ===== */
-
-/* 기본 본문 크기 */
-body {
-  font-size: 15px;      /* 전체를 한 단계 키우는 느낌 (기존보다 1~2px 큼) */
-  line-height: 1.8;
-}
-
-/* 섹션 제목, 부제목 약간 키우기 */
-.section-title {
-  font-size: 24px;
-}
-
-.section-sub {
-  font-size: 14px;
-}
-
-/* 카드 안 글(리스트, 문단) 기본값 */
-.card p,
-.card li {
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-/* 이미 설정해둔 hero-meta도 조금 더 크게 보이도록 */
-.hero-meta {
-  font-size: 18px;
-  line-height: 1.8;
-}
