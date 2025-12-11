@@ -565,21 +565,22 @@
   <h2 class="section-title">Profile</h2>
   <p class="section-sub">Growthme를 이끄는 사람입니다.</p>
 
-  <div class="card profile-card">
-    <div class="profile-wrapper">
-      <img src="growthme-profile.png" alt="Growthme 대표 프로필 사진" class="profile-photo">
+ <div class="card profile-card">
+  <div class="profile-wrapper">
+    <!-- 프로필 사진 -->
+    <img src="growthme-profile.png" alt="Growthme 대표 프로필 사진" class="profile-photo">
 
-      <div>
-        <div class="profile-name">김승혁</div>
-        <div class="profile-role">대표 · 경영컨설턴트</div>
+    <!-- 사진 옆 텍스트 묶음 -->
+    <div>
+      <div class="profile-name">김승혁</div>
+      <div class="profile-role">대표 · 경영컨설턴트</div>
 
-        <ul class="profile-list">
-          <li>한국외국어대학교 국제지역대학원 중동지역학(경제학) 박사과정</li>
-          <li>린스타트업·예비창업패키지·청년창업사관학교·도약패키지 등 정부지원사업 다수 선정</li>
-          <li>중소벤처기업진흥공단·소상공인시장진흥공단·기술보증기금·신용보증재단 등 정책자금·보증 연계 경험</li>
-          <li>중동지역 ODA·해외 수출프로젝트 실무 경험 (이집트, UAE 및 쿠웨이트 판로개척,이라크 재건사업,중동 전 국가 수출지원 등)</li>
-        </ul>
-      </div>
+      <ul class="profile-list">
+        <li>한국외국어대학교 국제지역대학원 중동지역학(경제학) 박사과정</li>
+        <li>린스타트업·예비창업패키지·청년창업사관학교·도약패키지 등 정부지원사업 다수 선정</li>
+        <li>중소벤처기업진흥공단·소상공인시장진흥공단·기술보증기금·신용보증재단 등 정책자금·보증 연계 경험</li>
+        <li>중동지역 ODA·해외 수출프로젝트 실무 경험 (이집트, UAE 및 쿠웨이트 판로개척, 이라크 재건사업, 중동 전 국가 수출지원 등)</li>
+      </ul>
     </div>
   </div>
 </div>
@@ -639,6 +640,39 @@
 }
 
 /* 모바일에서 세로 정렬 */
+@media (max-width: 768px) {
+  .profile-wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-wrapper > div {
+    text-align: left;
+  }
+}
+.profile-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* 카드 안 프로필 사진 크기 */
+.card.profile-card .profile-photo {
+  width: 80px;      /* 더 크고 싶으면 96px, 100px 등으로 조절 */
+  height: 80px;
+  border-radius: 999px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* 템플릿 기본 규칙(이미지 100% 폭) 덮어쓰기 */
+.card.profile-card img {
+  width: auto;
+  max-width: none;
+}
+
+/* 모바일에서는 위에 사진, 아래에 텍스트 */
 @media (max-width: 768px) {
   .profile-wrapper {
     flex-direction: column;
