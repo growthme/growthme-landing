@@ -44,42 +44,56 @@
       padding: 32px 20px 64px;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    .logo-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-  /* 가로형 로고 컨테이너 */
-.logo-mark {
-  height: 40px;      /* 로고 높이 기준(너무 크면 36px, 더 키우려면 44px 등으로 조정) */
-  /* width는 지정하지 않습니다 = 가로는 이미지 비율대로 자동 */
+  header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;         /* 이전 40px에서 살짝 줄여서 덜 벌어지게 */
 }
 
-/* 실제 로고 이미지 */
+/* 로고 + 텍스트 묶음 */
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 로고 들어가는 박스 (흰색 배경 + 그림자) */
+.logo-mark {
+  height: 40px;                /* 로고 높이: 크고 작게 조절하고 싶으면 여기 숫자 */
+  padding: 4px 14px;           /* 로고 주변 여백 */
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.35);
+}
+
+/* 실제 로고 이미지: 가로비율 유지 */
 .logo-mark .logo-img {
-  height: 100%;      /* 부모 높이에 맞추기 */
-  width: auto;       /* 비율 유지하며 가로 자동 */
+  height: 100%;
+  width: auto;
   display: block;
 }
 
-    .logo-text-main {
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      font-size: 30px;
-    }
+/* 텍스트 그룹 (그로스미 경영컨설팅) */
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-    .logo-text-sub {
-      font-size: 18px;
-      color: var(--text-muted);
-    }
+/* 영어 Growthme는 아예 안 씀: 필요 없으면 클래스만 남겨두고 사용 X */
+.logo-text-main {
+  display: none;
+}
+
+/* '그로스미 경영컨설팅' 스타일 */
+.logo-text-sub {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);          /* 기본 텍스트 색 (거의 흰색에 가까운 톤일 거예요) */
+}
 
     nav {
       display: flex;
@@ -484,22 +498,28 @@ body {
 </head>
 <body>
   <div class="page">
-    <header>
-   <div class="logo-mark">
-  <img src="growthme-logo.png" alt="Growthme 로고" class="logo-img">
-</div>
-          <div class="logo-text-main">Growthme</div>
-          <div class="logo-text-sub">그로스미 경영컨설팅</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#services">Business Area</a>
-        <a href="#why">Why Growthme</a>
-        <a href="#profile">Profile</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+  <header>
+  <div class="logo-wrap">
+    <!-- 로고 + 흰색 배경 박스 -->
+    <div class="logo-mark">
+      <img src="growthme-logo.png" alt="Growthme 로고" class="logo-img">
+    </div>
+
+    <!-- 옆에 붙는 텍스트: 그로스미 경영컨설팅만 표시 -->
+    <div class="logo-text-group">
+      <div class="logo-text-sub">그로스미 경영컨설팅</div>
+    </div>
+  </div>
+
+  <!-- 우측 네비게이션 메뉴 -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Business Area</a>
+    <a href="#why">Why Growthme</a>
+    <a href="#profile">Profile</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
     <main>
       <!-- Hero -->
