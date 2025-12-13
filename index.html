@@ -57,13 +57,18 @@
       gap: 12px;
     }
 
-    .logo-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #4ef1e1, #0ea5e9 40%, #0369a1 80%);
-      box-shadow: 0 0 24px rgba(45, 212, 191, 0.5);
-    }
+  /* 가로형 로고 컨테이너 */
+.logo-mark {
+  height: 40px;      /* 로고 높이 기준(너무 크면 36px, 더 키우려면 44px 등으로 조정) */
+  /* width는 지정하지 않습니다 = 가로는 이미지 비율대로 자동 */
+}
+
+/* 실제 로고 이미지 */
+.logo-mark .logo-img {
+  height: 100%;      /* 부모 높이에 맞추기 */
+  width: auto;       /* 비율 유지하며 가로 자동 */
+  display: block;
+}
 
     .logo-text-main {
       font-weight: 700;
@@ -459,6 +464,20 @@ body {
 .hero-meta {
   font-size: 18px;
   line-height: 1.8;
+}
+
+    @media (max-width: 768px) {
+  .logo-mark {
+    height: 32px;        /* 모바일에서는 살짝 줄이기 */
+  }
+
+  .logo-text-main {
+    font-size: 24px;
+  }
+
+  .logo-text-sub {
+    font-size: 14px;
+  }
 }
 
   </style>
