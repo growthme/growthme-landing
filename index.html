@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Growthme | 그로스미 경영컨설팅</title>
     <meta name="description" content="중소기업, 소상공인 정책자금 및 스타트업, 중동 진출 전문 컨설팅.">
     
@@ -51,8 +51,10 @@
     <style>
         html { 
             scroll-behavior: smooth; 
-            scroll-padding-top: 80px; /* 모바일 헤더 높이만큼 여백 */
+            scroll-padding-top: 80px; 
         }
+        /* 단어 중간 끊김 방지 (약..속 해결) */
+        .break-keep { word-break: keep-all; }
         
         .hero-overlay {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 58, 138, 0.8) 100%);
@@ -73,10 +75,10 @@
 
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between py-3 md:py-4 items-center">
+            <div class="flex justify-between h-16 md:h-20 items-center">
                 
                 <a href="#" class="flex items-center gap-2 group" onclick="location.reload()">
-                    <img src="images/logo.png" onerror="this.style.display='none'" class="h-8 md:h-10 w-auto object-contain rounded-sm shadow-sm">
+                    <img src="images/logo.png" onerror="this.style.display='none'" class="h-7 md:h-10 w-auto object-contain rounded-sm shadow-sm">
                     
                     <span class="font-black text-sm md:text-2xl text-gray-800 tracking-tight leading-none pb-0.5 group-hover:text-brand-primary transition whitespace-nowrap">
                         그로스미 경영컨설팅
@@ -106,7 +108,7 @@
             </div>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 shadow-xl absolute w-full left-0 top-full z-40">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 shadow-xl absolute w-full left-0 top-16 z-40">
             <div class="px-5 pt-4 pb-6 space-y-3">
                 <a href="#services" class="block px-4 py-3 font-bold text-gray-700 hover:bg-gray-50 rounded-lg">
                     <i class="fas fa-briefcase w-5 text-brand-gold mr-2"></i> 사업영역
@@ -129,7 +131,7 @@
         </div>
     </nav>
 
-    <header class="relative min-h-screen flex items-center justify-center text-center px-4 pt-20 md:pt-20">
+    <header class="relative min-h-screen flex items-center justify-center text-center px-4 pt-20">
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center bg-fixed"></div>
         <div class="absolute inset-0 hero-overlay"></div>
 
@@ -139,7 +141,7 @@
                 <span class="text-brand-gold font-bold text-xs md:text-sm tracking-wide">중소기업 · 소상공인 · 스타트업 파트너</span>
             </div>
             
-            <h1 class="text-2xl md:text-5xl font-bold leading-snug mb-6 tracking-tight">
+            <h1 class="text-2xl md:text-5xl font-bold leading-snug mb-6 tracking-tight break-keep">
                 <span class="text-blue-400">기업 전반의 경영전략</span>과<br> 
                 <span class="text-blue-400">자금 확보</span>부터<br class="md:hidden"> 
                 <span class="text-brand-gold">글로벌 진출</span>까지,<br>
@@ -163,7 +165,7 @@
     <section id="about" class="py-20 bg-brand-light">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-xl md:text-3xl font-bold text-gray-900 break-keep leading-tight">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-900 break-keep leading-tight">
                     Growthme의 <span class="text-brand-primary">3가지 핵심 약속</span>
                 </h2>
                 <div class="w-12 h-1 bg-gray-300 mx-auto mt-4 rounded-full"></div>
@@ -209,10 +211,10 @@
             </div>
 
             <div class="grid grid-cols-2 md:flex md:justify-center gap-2 mb-10">
-                <button onclick="openTab(event, 'tab1')" class="tab-btn active bg-gray-100 py-3 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-200 transition border border-transparent">정책자금·재무</button>
-                <button onclick="openTab(event, 'tab2')" class="tab-btn bg-gray-100 py-3 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-200 transition border border-transparent">스타트업·창업</button>
-                <button onclick="openTab(event, 'tab3')" class="tab-btn bg-gray-100 py-3 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-200 transition border border-transparent">중동·글로벌</button>
-                <button onclick="openTab(event, 'tab4')" class="tab-btn bg-gray-100 py-3 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-200 transition border border-transparent">기업인증</button>
+                <button onclick="openTab(event, 'tab1')" class="tab-btn active w-full sm:w-auto bg-gray-100 px-6 py-3 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-200 transition border-2 border-transparent">정책자금·재무</button>
+                <button onclick="openTab(event, 'tab2')" class="tab-btn w-full sm:w-auto bg-gray-100 px-6 py-3 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-200 transition border-2 border-transparent">스타트업·창업</button>
+                <button onclick="openTab(event, 'tab3')" class="tab-btn w-full sm:w-auto bg-gray-100 px-6 py-3 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-200 transition border-2 border-transparent">중동·글로벌</button>
+                <button onclick="openTab(event, 'tab4')" class="tab-btn w-full sm:w-auto bg-gray-100 px-6 py-3 rounded-lg font-bold text-sm text-gray-500 hover:bg-gray-200 transition border-2 border-transparent">기업인증·연구소</button>
             </div>
 
             <div id="tab1" class="tab-content active bg-gray-50 rounded-2xl p-6 md:p-12 border border-gray-100">
