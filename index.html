@@ -1,739 +1,462 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <title>Growthme | 그로스미 경영컨설팅</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="정책자금·기업재무·지식창업·중동 진출까지, 중소기업·스타트업을 위한 Growthme(그로스미) 경영컨설팅입니다.">
-  <style>
-    :root {
-      --bg: #0b1320;
-      --bg-alt: #111827;
-      --accent: #12b3b3;
-      --accent-soft: rgba(18, 179, 179, 0.1);
-      --text: #f9fafb;
-      --text-muted: #9ca3af;
-      --card: #111827;
-      --border: #1f2933;
-      --radius-lg: 18px;
-      --radius-sm: 10px;
-      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.35);
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 45%, #000 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      max-width: 1040px;
-      margin: 0 auto;
-      padding: 32px 20px 64px;
-    }
-
-  header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;         /* 이전 40px에서 살짝 줄여서 덜 벌어지게 */
-}
-
-/* 로고 + 텍스트 묶음 */
-.logo-wrap {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-/* 로고 들어가는 박스 (흰색 배경 + 그림자) */
-.logo-mark {
-  height: 40px;                /* 로고 높이: 크고 작게 조절하고 싶으면 여기 숫자 */
-  padding: 4px 14px;           /* 로고 주변 여백 */
-  background: rgba(255, 255, 255, 0.96);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  box-shadow: 0 0 16px rgba(0, 0, 0, 0.35);
-}
-
-/* 실제 로고 이미지: 가로비율 유지 */
-.logo-mark .logo-img {
-  height: 100%;
-  width: auto;
-  display: block;
-}
-
-/* 텍스트 그룹 (그로스미 경영컨설팅) */
-.logo-text-group {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* 영어 Growthme는 아예 안 씀: 필요 없으면 클래스만 남겨두고 사용 X */
-.logo-text-main {
-  display: none;
-}
-
-/* '그로스미 경영컨설팅' 스타일 */
-.logo-text-sub {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text);          /* 기본 텍스트 색 (거의 흰색에 가까운 톤일 거예요) */
-}
-
-    nav {
-      display: flex;
-      gap: 18px;
-      font-size: 13px;
-    }
-
-    nav a {
-      color: var(--text-muted);
-      padding: 6px 10px;
-      border-radius: 999px;
-      transition: background 0.15s, color 0.15s;
-    }
-
-    nav a:hover {
-      background: rgba(148, 163, 184, 0.2);
-      color: var(--text);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
-      gap: 32px;
-      align-items: center;
-      margin-bottom: 52px;
-    }
-
-    .hero-title-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 11px;
-      margin-bottom: 14px;
-    }
-
-    .hero-title-tag span {
-      width: 5px;
-      height: 5px;
-      border-radius: 999px;
-      background: var(--accent);
-    }
-
-    .hero h1 {
-      font-size: clamp(26px, 3vw, 32px);
-      margin-bottom: 16px;
-    }
-
-    .hero h1 strong {
-      color: var(--accent);
-    }
-
-    .hero-sub {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 22px;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .btn-primary {
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: none;
-      outline: none;
-      background: linear-gradient(135deg, #0ea5e9, #14b8a6);
-      color: #0b1120;
-      font-weight: 600;
-      font-size: 13px;
-      cursor: pointer;
-      box-shadow: 0 14px 30px rgba(34, 211, 238, 0.35);
-      transition: transform 0.1s ease, box-shadow 0.1s ease;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 40px rgba(34, 211, 238, 0.45);
-    }
-
-    .btn-secondary {
-      padding: 10px 16px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      background: transparent;
-      color: var(--text-muted);
-      font-size: 12px;
-      cursor: pointer;
-      transition: background 0.15s, border-color 0.15s, color 0.15s;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(15, 23, 42, 0.9);
-      border-color: var(--accent-soft);
-      color: var(--text);
-    }
-
-    .hero-meta {
-      font-size: 18px;
-      color: var(--text-muted);
-    }
-
-    .hero-meta strong {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .hero-card {
-      background: radial-gradient(circle at top left, #1f2937, #020617 70%);
-      border-radius: 22px;
-      padding: 20px 18px;
-      box-shadow: var(--shadow-soft);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-    }
-
-    .hero-card-title {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 10px;
-    }
-
-    .hero-card-main {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-
-    .hero-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 8px;
-    }
-
-    .pill {
-      font-size: 11px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      color: var(--text-muted);
-    }
-
-    .hero-card-foot {
-      border-top: 1px dashed rgba(148, 163, 184, 0.35);
-      padding-top: 10px;
-      margin-top: 6px;
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
-   .grid-2 {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr); /* 항상 한 칸 */
-      gap: 24px;
-      margin-bottom: 40px;
-    }
-
-    .section-title {
-      font-size: 18px;
-      margin-bottom: 6px;
-    }
-
-    .section-sub {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 16px;
-    }
-
-    .card {
-      background: rgba(15, 23, 42, 0.9);
-      border-radius: var(--radius-lg);
-      padding: 18px 16px;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
-    }
-
-    .card-tag {
-      font-size: 11px;
-      color: var(--accent);
-      margin-bottom: 4px;
-    }
-
-    .card h3 {
-      font-size: 15px;
-      margin-bottom: 8px;
-    }
-
-    .card p {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .card ul {
-      list-style: none;
-      font-size: 12px;
-      color: var(--text-muted);
-      padding-left: 0;
-    }
-
-    .card ul li::before {
-      content: "•";
-      margin-right: 6px;
-      color: var(--accent);
-    }
-
-    .stack {
-      display: grid;
-      gap: 14px;
-    }
-
-    .profile-card {
-      display: grid;
-      gap: 12px;
-    }
-
-    .profile-name {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .profile-role {
-      font-size: 13px;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .profile-list {
-      font-size: 12px;
-      color: var(--text-muted);
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .profile-list li::before {
-      content: "–";
-      margin-right: 4px;
-      color: var(--accent);
-    }
-
-    .contact {
-      margin-top: 20px;
-    }
-
-    .contact-box {
-      background: rgba(15, 23, 42, 0.95);
-      border-radius: var(--radius-lg);
-      padding: 18px 16px;
-      border: 1px solid rgba(31, 41, 55, 0.9);
-      display: grid;
-      gap: 10px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .contact-highlight {
-      font-size: 13px;
-      color: var(--text);
-    }
-
-    .contact-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 24px;
-      font-size: 13px;
-    }
-
-    .footer {
-      margin-top: 36px;
-      font-size: 11px;
-      color: var(--text-muted);
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
-      padding-top: 14px;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      nav {
-        font-size: 12px;
-        flex-wrap: wrap;
-      }
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .grid-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .page {
-        padding: 20px 16px 40px;
-      }
-    }/* ===== Profile 섹션 레이아웃 ===== */
-
-/* 사진 + 텍스트 가로 배치 */
-.profile-card .profile-wrapper {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-/* 프로필 사진을 작게 동그랗게 */
-.profile-card img.profile-photo {
-  width: 120px !important;   /* 80 → 96, 100 등으로 바꾸면 크기 조절 가능 */
-  height: 120px !important;
-  border-radius: 999px !important;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-/* 카드 안 이미지 100%로 늘어나는 기본 규칙 무력화 */
-.card.profile-card img {
-  width: auto !important;
-  max-width: none !important;
-}
-
-/* 이름/직책 약간 강조 */
-.profile-name {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 2px;
-}
-
-.profile-role {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-/* 모바일에서는 세로 정렬 */
-@media (max-width: 768px) {
-  .profile-card .profile-wrapper {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .profile-card .profile-wrapper > div {
-    text-align: left;
-  }
-}
-
-        /* ===== 전역 폰트 사이즈 조정 ===== */
-
-/* 기본 본문 크기 */
-body {
-  font-size: 15px;      /* 전체를 한 단계 키우는 느낌 (기존보다 1~2px 큼) */
-  line-height: 1.8;
-}
-
-/* 섹션 제목, 부제목 약간 키우기 */
-.section-title {
-  font-size: 24px;
-}
-
-.section-sub {
-  font-size: 14px;
-}
-
-/* 카드 안 글(리스트, 문단) 기본값 */
-.card p,
-.card li {
-  font-size: 14px;
-  line-height: 1.7;
-}
-
-/* 이미 설정해둔 hero-meta도 조금 더 크게 보이도록 */
-.hero-meta {
-  font-size: 18px;
-  line-height: 1.8;
-}
-
-    @media (max-width: 768px) {
-  .logo-mark {
-    height: 32px;        /* 모바일에서는 살짝 줄이기 */
-  }
-
-  .logo-text-main {
-    font-size: 24px;
-  }
-
-  .logo-text-sub {
-    font-size: 14px;
-  }
-}
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growthme | 그로스미 경영컨설팅</title>
+    <meta name="description" content="중소기업, 소상공인 정책자금 및 스타트업, 중동 진출 전문 컨설팅.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Noto Sans KR', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            dark: '#0f172a',      
+                            primary: '#1e40af',   
+                            gold: '#b45309',      
+                            light: '#f8fafc'
+                        }
+                    },
+                    keyframes: {
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    },
+                    animation: {
+                        scroll: 'scroll 30s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        
+        /* ★ 배경색 수정됨: 투명도를 0.9 -> 0.6로 낮춰서 훨씬 부드럽게 만듦 */
+        .hero-overlay {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 58, 138, 0.7) 100%);
+        }
+        
+        .tab-content { display: none; animation: fadeIn 0.5s; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .slider { overflow: hidden; position: relative; width: 100%; background: white; padding: 20px 0; border-top: 1px solid #e5e7eb; }
+        .slide-track { display: flex; width: calc(200px * 12); } 
+        .slide { height: 80px; width: 200px; display: flex; align-items: center; justify-content: center; padding: 0 20px; }
+        .slide img { max-height: 50px; width: auto; object-fit: contain; filter: grayscale(100%); opacity: 0.7; transition: 0.3s; }
+        .slide img:hover { filter: grayscale(0%); opacity: 1; }
+    </style>
 </head>
-<body>
-  <div class="page">
-  <header>
-  <div class="logo-wrap">
-    <!-- 로고 + 흰색 배경 박스 -->
-    <div class="logo-mark">
-      <img src="growthme-logo.png" alt="Growthme 로고" class="logo-img">
-    </div>
+<body class="font-sans text-gray-800 antialiased bg-white overflow-x-hidden">
 
-    <!-- 옆에 붙는 텍스트: 그로스미 경영컨설팅만 표시 -->
-    <div class="logo-text-group">
-      <div class="logo-text-sub">그로스미 경영컨설팅</div>
-    </div>
-  </div>
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                
+                <a href="#" class="flex items-center gap-3 group" onclick="location.reload()">
+                    <img src="images/logo.png" onerror="this.style.display='none'" class="h-10 md:h-12 w-auto object-contain rounded-sm shadow-sm">
+                    
+                    <span class="font-black text-xl md:text-3xl text-gray-800 tracking-tight leading-none pb-1 group-hover:text-brand-primary transition whitespace-nowrap">
+                        그로스미 경영컨설팅
+                    </span>
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="#services" class="text-gray-600 hover:text-brand-primary font-bold text-sm transition">사업영역</a>
+                    <a href="#process" class="text-gray-600 hover:text-brand-primary font-bold text-sm transition">컨설팅 절차</a>
+                    <a href="#profile" class="text-gray-600 hover:text-brand-primary font-bold text-sm transition">대표 소개</a>
+                    
+                    <div class="flex items-center gap-3 ml-4">
+                        <a href="login.html" class="text-brand-dark hover:text-brand-primary font-bold text-sm px-4 py-2 border border-gray-300 rounded-lg transition hover:bg-gray-50">
+                            <i class="fas fa-sign-in-alt mr-1"></i> 로그인
+                        </a>
+                        <a href="#contact" class="bg-brand-primary text-white px-5 py-2.5 rounded-lg font-bold text-sm hover:bg-blue-800 transition shadow-lg hover:-translate-y-0.5">
+                            무료 진단
+                        </a>
+                    </div>
+                </div>
 
-  <!-- 우측 네비게이션 메뉴 -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#services">Business Area</a>
-    <a href="#why">Why Growthme</a>
-    <a href="#profile">Profile</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-    <main>
-      <!-- Hero -->
-      <section class="hero">
-        <div>
-          <div class="hero-title-tag">
-            <span></span> 중소기업·스타트업 성장 파트너
-          </div>
-          <h1>
-            정책자금·기업재무·지식창업<br />중동을 비롯한 해외시장 진출까지
-            <strong>Growthme(그로스미)</strong>가 함께합니다.
-          </h1>
-          <p class="hero-sub">
-            인력 채용 없이도 전담 경영 파트너를 두는 것처럼 !<br />
-            지식기반 창업, 정책자금과 재무관리, 중동을 비롯한 해외사업까지<br />
-            한 번에 연결되는 경영컨설팅 서비스를 제공합니다.
-          </p>
-          <div class="hero-actions">
-            <a href="#contact"><button class="btn-primary">상담 문의하기</button></a>
-            <a href="#services"><button class="btn-secondary">서비스 영역 보기</button></a>
-          </div>
-          <div class="hero-meta">
-           <strong>다수의 정부지원사업·정책자금 7년간의 다양한 실무경험과 박사급 이론을 <strong> 바탕으로 고객님이 원하시는 최적의 컨설팅서비스를 제공합니다.
-          </div>
-        </div>
-        <aside class="hero-card">
-          <div class="hero-card-title">Growthme 한눈에 보기</div>
-          <div class="hero-card-main">
-            중소기업·스타트업의
-            <strong>자금·전략·해외 진출</strong>을<br />
-            동시에 다루는 실무형 경영 파트너입니다.
-          </div>
-          <div class="hero-pills">
-            <div class="pill">정책자금·보증 컨설팅</div>
-            <div class="pill">기업 재무·자금관리</div>
-            <div class="pill">스타트업·지식창업</div>
-            <div class="pill">중동(UAE·GCC) 시장</div>
-            <div class="pill">ODA·해외 프로젝트 경험</div>
-          </div>
-          <div class="hero-card-foot">
-            린스타트업·예비창업패키지·청년창업사관학교·도약패키지 등<br />
-            다수 정부지원사업 선정 및 수행 경험을 기반으로,<br />
-            <strong>심사관의 시각에서 사업을 함께 설계</strong>합니다.
-          </div>
-        </aside>
-      </section>
-
-      <!-- About & Business Area -->
-      <section id="about" class="grid-2">
-        <div>
-          <h2 class="section-title">About Growthme</h2>
-          <p class="section-sub">
-            Growthme(그로스미)는 자금 조달과 해외 확장을 동시에 고민하는 중소기업·스타트업을 위한<br />경영컨설팅 파트너입니다.
-          </p>
-          <div class="card">
-            <p>
-              단순히 “서류를 대신 써주는 대행사”가 아닌 기업의 단계·재무 구조·시장 방향을 함께 검토하고 <strong>실행 가능한 성장 시나리오</strong>를 설계합니다.
-            </p>
-            <p>
-              특히 <strong>정책자금·보증기관</strong>과
-              <strong>중동지역 비즈니스</strong>에 특화되어 있어, 내수와 해외를 잇는 중장기 전략 수립에 강점을 가지고 있습니다.
-            </p>
-          </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-primary p-2 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div id="services">
-          <h2 class="section-title">Business Area</h2>
-          <p class="section-sub">
-            Growthme가 제공하는 핵심 컨설팅 영역입니다.
-          </p>
-          <div class="stack">
-            <div class="card">
-              <div class="card-tag">01</div>
-              <h3>정책자금·기업재무 컨설팅</h3>
-              <p>
-                기업의 성장 단계와 재무 구조를 분석하여,  
-                적합한 정책자금·보증·대출 구조를 함께 설계합니다.
-              </p>
-              <ul>
-                <li>중진공·소진공·기보·신보 등 기관별 전략 수립</li>
-                <li>사업계획서·자금사용계획서·보고서 작성 지원</li>
-                <li>재무 구조 진단 및 개선 방향 제안</li>
-              </ul>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 shadow-xl absolute w-full left-0 top-20 z-40">
+            <div class="px-5 pt-4 pb-6 space-y-3">
+                <a href="#services" class="block px-4 py-3 font-bold text-gray-700 hover:bg-gray-50 rounded-lg">
+                    <i class="fas fa-briefcase w-5 text-brand-gold mr-2"></i> 사업영역
+                </a>
+                <a href="#process" class="block px-4 py-3 font-bold text-gray-700 hover:bg-gray-50 rounded-lg">
+                    <i class="fas fa-sync-alt w-5 text-brand-primary mr-2"></i> 컨설팅 절차
+                </a>
+                <a href="#profile" class="block px-4 py-3 font-bold text-gray-700 hover:bg-gray-50 rounded-lg">
+                    <i class="fas fa-user-tie w-5 text-brand-dark mr-2"></i> 대표 소개
+                </a>
+                <div class="pt-4 border-t border-gray-100 grid grid-cols-2 gap-3">
+                    <a href="login.html" class="block py-3 font-bold text-center text-brand-dark border border-gray-300 rounded-lg hover:bg-gray-50">
+                        로그인
+                    </a>
+                    <a href="#contact" class="block py-3 font-bold text-center text-white bg-brand-primary rounded-lg hover:bg-blue-800 shadow-md">
+                        무료 진단
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center justify-center text-center px-4 pt-20">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center bg-fixed"></div>
+        <div class="absolute inset-0 hero-overlay"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-white" data-aos="fade-up">
+            <div class="inline-flex items-center gap-2 px-5 py-2 mb-8 rounded-full bg-white/10 backdrop-blur-md border border-brand-gold/50">
+                <span class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></span>
+                <span class="text-brand-gold font-bold text-sm tracking-wide">중소기업 · 소상공인 · 스타트업 전문 파트너</span>
+            </div>
+            
+            <h1 class="text-2xl md:text-5xl font-bold leading-relaxed mb-8 tracking-tight break-keep">
+                <span class="text-blue-400">기업 전반의 경영전략과 자금 확보</span>부터<br> 
+                <span class="text-brand-gold">중동을 비롯한 글로벌 진출</span>까지,<br>
+                성장의 판을 키우는 경영 솔루션.
+            </h1>
+            
+            <p class="text-base md:text-xl text-gray-200 mb-12 max-w-3xl mx-auto leading-loose font-light break-keep">
+                단순한 대행이 아닙니다. <br>
+                기업과 소상공인의 <strong>내부 역량을 강화</strong>하고, 
+                실현 가능한 <strong>성장 로드맵</strong>을 함께 그리는 프랙셔널 파트너입니다.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#contact" class="bg-brand-gold hover:bg-amber-700 text-white px-10 py-4 rounded-xl font-bold text-lg transition shadow-xl hover:-translate-y-1">
+                    지금 무료 상담 받기
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-24 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">
+                    Growthme의 <span class="text-brand-primary">3가지 핵심 약속</span>
+                </h2>
+                <div class="w-16 h-1 bg-gray-300 mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-transparent hover:border-brand-primary transition duration-300" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-14 h-14 bg-blue-100 text-brand-primary rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                        <i class="fas fa-search-dollar"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">심사위원 관점의 전략</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        다수의 정부지원사업 선정 경험을 바탕으로, 평가위원이 납득할 수 있는 <strong>논리와 사업 계획</strong>을 함께 설계합니다.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-transparent hover:border-green-500 transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">실무 중심 지식창업</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        <strong>린스타트업(Lean Startup)</strong> 방법론을 통해 비즈니스 모델을 검증하고, 정부 지원 사업을 통한 초기 자금 확보를 돕습니다.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-transparent hover:border-brand-gold transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-amber-100 text-brand-gold rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                        <i class="fas fa-globe-asia"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">이론과 현장의 결합</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        <strong>한국외대 중동 경제학 박사과정</strong>과 <strong>5년 간의 현지 거주 경험</strong>을 결합하여, 허상이 아닌 실질적인 수출입 전략을 자문합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-brand-primary font-bold tracking-widest uppercase text-xs">Solutions</span>
+                <h2 class="text-4xl font-bold text-gray-900 mt-2">전문 컨설팅 영역</h2>
             </div>
 
-            <div class="card">
-              <div class="card-tag">02</div>
-              <h3>스타트업·지식창업 및 경영전략 컨설팅</h3>
-              <p>
-                아이템·시장·조직 구조를 함께 점검하며  
-                지식 기반 창업과 스타트업의 실행 전략을 설계합니다.
-              </p>
-              <ul>
-                <li>린스타트업 관점의 사업모델 검증 및 고도화</li>
-                <li>예비·초기 창업자 대상 지식창업 모델 설계</li>
-                <li>정부지원 R&D·사업화 과제 기획 및 피드백</li>
-              </ul>
+            <div class="flex justify-center mb-12 flex-wrap gap-2">
+                <button onclick="openTab(event, 'tab1')" class="tab-btn active bg-gray-100 px-6 py-3 rounded-full font-bold text-gray-500 hover:bg-gray-200 transition border-2 border-transparent">정책자금·재무</button>
+                <button onclick="openTab(event, 'tab2')" class="tab-btn bg-gray-100 px-6 py-3 rounded-full font-bold text-gray-500 hover:bg-gray-200 transition border-2 border-transparent">스타트업·지식창업</button>
+                <button onclick="openTab(event, 'tab3')" class="tab-btn bg-gray-100 px-6 py-3 rounded-full font-bold text-gray-500 hover:bg-gray-200 transition border-2 border-transparent">중동·글로벌 진출</button>
+                <button onclick="openTab(event, 'tab4')" class="tab-btn bg-gray-100 px-6 py-3 rounded-full font-bold text-gray-500 hover:bg-gray-200 transition border-2 border-transparent">기업인증·연구소</button>
             </div>
 
-            <div class="card">
-              <div class="card-tag">03</div>
-              <h3>중동 중심 해외시장 진출·운영 지원</h3>
-              <p>
-                중동(특히 UAE·GCC) 시장을 중심으로  
-                시장 조사부터 파트너 발굴, 운영 이슈까지 동행합니다.
-              </p>
-              <ul>
-                <li>중동·아랍권 시장 조사 및 진출 전략 자문</li>
-                <li>현지 파트너·바이어 커뮤니케이션 및 실무 지원</li>
-                <li>ODA·해외 프로젝트 경험 기반 실행 컨설팅</li>
-              </ul>
+            <div id="tab1" class="tab-content active bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <div class="inline-block p-2 bg-blue-100 text-brand-primary rounded-lg mb-4 text-xl"><i class="fas fa-coins"></i></div>
+                        <h3 class="text-2xl font-bold text-brand-primary mb-4">기업과 소상공인의 자금 숨통 트기</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            기업의 성격, 아이디어 및 기술보유현황, 매출 규모와 업력에 따라 전략은 달라져야 합니다. <br>
+                            중소기업부터 소상공인까지, 기관별(중진공·소진공·기보·신보) 특성에 맞춘 최적의 자금 조달 구조를 설계합니다.
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-primary"></i> 정책자금/보증서 매칭 및 승인 전략</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-primary"></i> 소상공인 시장진흥공단 자금 연계</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-primary"></i> 기업 신용등급 및 재무 건전성 관리</li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="rounded-xl shadow-xl w-full" alt="Finance">
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <div id="tab2" class="tab-content bg-green-50 rounded-3xl p-8 md:p-12 border border-green-100">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <div class="inline-block p-2 bg-green-100 text-green-600 rounded-lg mb-4 text-xl"><i class="fas fa-rocket"></i></div>
+                        <h3 class="text-2xl font-bold text-green-700 mb-4">아이디어를 비즈니스로, 지식창업</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            막연한 아이디어를 구체적인 사업 모델로 발전시킵니다. <br>
+                            심사위원의 관점으로 시장성을 검증하고, 정부 지원 사업을 통해 초기 자금을 확보가능하도록 멘토링합니다.
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-600"></i> 예비/초기 창업패키지 합격 멘토링</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-600"></i> 사업계획서(PSST) 작성 및 피칭 코칭</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-green-600"></i> 비즈니스 모델(BM) 고도화</li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" class="rounded-xl shadow-xl w-full" alt="Startup">
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab3" class="tab-content bg-amber-50 rounded-3xl p-8 md:p-12 border border-brand-gold/20">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <div class="inline-block p-2 bg-amber-100 text-brand-gold rounded-lg mb-4 text-xl"><i class="fas fa-mosque"></i></div>
+                        <h3 class="text-2xl font-bold text-brand-gold mb-4">중동(MENA) 지역 진출 파트너</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            국내 유일의 중동 전문성으로 진입 장벽을 낮춥니다.<br>
+                            5년 간의 이집트·두바이 현지경험과 로컬 네트워크를 통해, 일반적으로는 알 수 없는 '진짜' 현지 시장 정보를 제공합니다.
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-gold"></i> 현지 시장 조사 및 진입 타당성 분석</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-gold"></i> 바이어 발굴 및 아랍식 비즈니스 협상 지원</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-brand-gold"></i> 수출입 절차 및 규제 자문</li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1546412414-e1885259563a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="rounded-xl shadow-xl w-full h-64 md:h-80 object-cover border-4 border-white" alt="Dubai">
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab4" class="tab-content bg-indigo-50 rounded-3xl p-8 md:p-12 border border-indigo-100">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="w-full md:w-1/2">
+                        <div class="inline-block p-2 bg-indigo-100 text-indigo-600 rounded-lg mb-4 text-xl"><i class="fas fa-certificate"></i></div>
+                        <h3 class="text-2xl font-bold text-indigo-700 mb-4">기업 인증 및 연구소 설립</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            기업 인증은 선택이 아닌 필수입니다. 세제 혜택부터 금리 우대까지, 기업의 신뢰도를 높이고 실질적인 혜택을 자문해드립니다.
+                        </p>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-indigo-600"></i> 벤처기업 / 이노비즈 / 메인비즈 인증</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-indigo-600"></i> 기업부설연구소 및 전담부서 설립 신고</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-indigo-600"></i> ISO 인증 및 특허 자본화</li>
+                        </ul>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="rounded-xl shadow-xl w-full" alt="Certification">
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
+    </section>
 
-      <!-- Why Growthme & Profile -->
-      <section id="why" class="grid-2">
-        <div>
-          <h2 class="section-title">Why Growthme</h2>
-          <p class="section-sub">
-            그로스미와 함께했을 때, 기업이 얻을 수 있는 차별화된 가치입니다.
-          </p>
-          <div class="card">
-            <h3>1. 현장에서 검증된 정책자금·지원사업 경험</h3>
-            <p>
-              린스타트업, 예비창업패키지, 청년창업사관학교, 도약패키지 등  
-              다수 정부지원사업 선정 및 수행 경험을 보유하고 있습니다.
-            </p>
-            <p>
-              단순히 “신청하는 방법”이 아니라,  
-              <strong>심사 기준과 심사자의 시각</strong>에서 사업을 함께 설계하는 것이 강점입니다.
-            </p>
-          </div>
-          <div class="card">
-            <h3>2. 연구와 실무를 겸비한 컨설팅</h3>
-            <p>
-              한국외국어대학교 국제지역학대학원 중동지역학(경제학) 박사과정에서  
-              중동 비즈니스·정책·경제 환경을 연구하며,
-              실제 현장에서의 해외사업 경험을 함께 쌓아가고 있습니다.
-            </p>
-            <p>
-              이론과 데이터, 그리고 현장 경험을 연결하여  
-              <strong>실행 가능한 전략</strong>으로 제시합니다.
-            </p>
-          </div>
-          <div class="card">
-            <h3>3. 인력 채용 없이 누리는 전담 파트너십</h3>
-            <p>
-              전담 인력을 고용하기에는 부담이 큰 기업을 위해  
-              인건비 대비 효율적인 <strong>프랙셔널 경영 파트너</strong> 역할을 수행합니다.
-            </p>
-            <p>
-              필요한 시점에, 필요한 만큼 전문가를 활용할 수 있도록  
-              유연한 형태의 컨설팅을 제공합니다.
-            </p>
-          </div>
+    <section id="process" class="py-24 bg-brand-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-16">Consulting Process</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+                <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-700 -z-0"></div>
+
+                <div class="relative z-10 group">
+                    <div class="w-24 h-24 mx-auto bg-brand-primary rounded-full flex items-center justify-center text-3xl font-bold border-4 border-brand-dark mb-6 group-hover:scale-110 transition duration-300 shadow-lg">01</div>
+                    <h3 class="text-xl font-bold mb-2 text-brand-gold">문의 및 진단</h3>
+                    <p class="text-gray-400 text-sm">기업 현황 파악 및<br>성장 가능성 진단</p>
+                </div>
+                <div class="relative z-10 group">
+                    <div class="w-24 h-24 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-3xl font-bold border-4 border-brand-dark mb-6 group-hover:bg-brand-primary transition duration-300 shadow-lg">02</div>
+                    <h3 class="text-xl font-bold mb-2">전략 수립</h3>
+                    <p class="text-gray-400 text-sm">최적의 자금/사업 매칭 및<br>로드맵 설계</p>
+                </div>
+                <div class="relative z-10 group">
+                    <div class="w-24 h-24 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-3xl font-bold border-4 border-brand-dark mb-6 group-hover:bg-brand-primary transition duration-300 shadow-lg">03</div>
+                    <h3 class="text-xl font-bold mb-2">실행 및 자문</h3>
+                    <p class="text-gray-400 text-sm">사업계획서 코칭,<br>평가 대응 및 멘토링</p>
+                </div>
+                <div class="relative z-10 group">
+                    <div class="w-24 h-24 mx-auto bg-gray-800 rounded-full flex items-center justify-center text-3xl font-bold border-4 border-brand-dark mb-6 group-hover:bg-brand-primary transition duration-300 shadow-lg">04</div>
+                    <h3 class="text-xl font-bold mb-2">사후 관리</h3>
+                    <p class="text-gray-400 text-sm">자금 집행 관리 및<br>후속 사업 연계</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-       <div id="profile">
-  <h2 class="section-title">Profile</h2>
-  <p class="section-sub">Growthme를 이끄는 사람입니다.</p>
-
- <div class="card profile-card">
-  <div class="profile-wrapper">
-    <!-- 프로필 사진 -->
-    <img src="growthme-profile.png" alt="Growthme 대표 프로필 사진" class="profile-photo">
-
-    <!-- 사진 옆 텍스트 묶음 -->
-    <div>
-      <div class="profile-name">김승혁</div>
-      <div class="profile-role">대표 · 경영컨설턴트</div>
-
-      <ul class="profile-list">
-        <li>한국외국어대학교 국제지역대학원 중동지역학(경제학) 박사과정</li>
-        <li>린스타트업·예비창업패키지·청년창업사관학교·도약패키지 등 정부지원사업 다수 선정</li>
-        <li>중소벤처기업진흥공단·소상공인시장진흥공단·기술보증기금·신용보증재단 등 정책자금·보증 연계 경험</li>
-        <li>중동지역 ODA·해외 수출프로젝트 실무 경험 (이집트, UAE 및 쿠웨이트 판로개척, 이라크 재건사업, 중동 전 국가 수출지원 등)</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-
-      <!-- Contact -->
-      <section id="contact" class="contact">
-        <h2 class="section-title">Contact</h2>
-        <p class="section-sub">
-          간단한 소개와 문의 내용을 보내주시면, 검토 후 개별적으로 연락드리겠습니다.
-        </p>
-        <div class="contact-box">
-          <div class="contact-highlight">
-            우리 회사의 자금·전략·해외 진출에 대해  
-            한 번 점검해 보고 싶으시다면 아래 연락처로 편하게 문의 주세요.
-          </div>
-          <div class="contact-row">
-            <div>이메일: <strong>ceo@growthme.co.kr</strong></div>
-            <div>연락처: <strong>010-4985-7946</strong></div>
-          </div>
-          <div style="font-size: 12px;">
-            메일 제목에 <strong>[컨설팅 문의]</strong>를 포함해 주시면 더 빠르게 확인할 수 있습니다.<br />
-            (회사명 / 담당자명 / 연락 가능한 시간대 / 간단한 문의 내용을 함께 적어주세요.)
-          </div>
+    <section id="profile" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-72 h-72 flex-shrink-0 relative">
+                    <div class="absolute inset-0 border-4 border-brand-gold rounded-full transform rotate-6"></div>
+                    <img src="images/profile.png" onerror="this.src='https://via.placeholder.com/300?text=CEO'" class="w-full h-full object-cover rounded-full shadow-2xl relative z-10 bg-gray-100">
+                </div>
+                <div>
+                    <span class="text-brand-primary font-bold tracking-widest uppercase text-xs">Representative Consultant</span>
+                    <h2 class="text-3xl font-bold text-gray-900 mt-2 mb-6">김승혁 <span class="text-xl font-normal text-gray-500">대표</span></h2>
+                    
+                    <p class="text-gray-600 mb-8 text-lg leading-relaxed font-light">
+                        "불법브로커나 단순 대행사가 아닙니다.<br>
+                        <strong>데이터에 기반한 분석</strong>과 <strong>발로 뛰는 현장 경험</strong>으로<br>
+                        기업과 소상공인에게 꼭 필요한 <strong>실행 전략</strong>을 제안합니다."
+                    </p>
+                    
+                    <div class="space-y-4 text-gray-700">
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 text-center"><i class="fas fa-graduation-cap text-brand-gold text-xl"></i></div>
+                            <div>
+                                <p class="font-bold">한국외국어대학교 국제지역대학원 중동지역학(경제학) 박사과정</p>
+                                <p class="text-sm text-gray-500">국내 유일 중동 경제 전문 연구 과정</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 text-center"><i class="fas fa-plane text-brand-gold text-xl"></i></div>
+                            <div>
+                                <p class="font-bold">이집트·두바이(UAE) 약 5년 현지 거주 및 실무</p>
+                                <p class="text-sm text-gray-500">현지 시장 정보 및 수출입 프로젝트 다수 수행</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 text-center"><i class="fas fa-briefcase text-brand-primary text-xl"></i></div>
+                            <div>
+                                <p class="font-bold">다수 정부지원사업 선정 및 수행</p>
+                                <p class="text-sm text-gray-500">예비/초기창업패키지, 청년창업사관학교, 도약패키지 등</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </section>
-    </main>
+    </section>
 
-    <footer class="footer">
-      <div>© <span id="year"></span> Growthme · 그로스미 경영컨설팅</div>
-      <div>Policy Funds · Corporate Finance · Startup · Middle East Business</div>
+    <section id="contact" class="py-24 bg-gray-50 text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8">성공적인 파트너십의 시작</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                <a href="tel:010-4985-7946" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 flex items-center justify-center gap-4 group">
+                    <div class="w-12 h-12 bg-blue-50 text-brand-primary rounded-full flex items-center justify-center text-xl"><i class="fas fa-phone-alt"></i></div>
+                    <div class="text-left">
+                        <p class="text-xs text-gray-400 font-bold uppercase">Call Us</p>
+                        <p class="text-lg font-bold text-gray-800">010-4985-7946</p>
+                    </div>
+                </a>
+                <a href="mailto:ceo@growthme.co.kr" class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border border-gray-200 flex items-center justify-center gap-4 group">
+                    <div class="w-12 h-12 bg-amber-50 text-brand-gold rounded-full flex items-center justify-center text-xl"><i class="fas fa-envelope"></i></div>
+                    <div class="text-left">
+                        <p class="text-xs text-gray-400 font-bold uppercase">Email Us</p>
+                        <p class="text-lg font-bold text-gray-800">ceo@growthme.co.kr</p>
+                    </div>
+                </a>
+            </div>
+            <a href="mailto:ceo@growthme.co.kr?subject=[컨설팅 문의]" class="inline-block bg-brand-dark text-white px-12 py-4 rounded-xl font-bold hover:bg-black transition shadow-xl w-full md:w-auto">
+                이메일로 문의하기
+            </a>
+        </div>
+    </section>
+
+    <section class="border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 py-4 text-center">
+            <p class="text-xs text-gray-400 uppercase tracking-widest font-bold mb-2">Consulting Targets & Partners</p>
+        </div>
+        <div class="slider">
+            <div class="slide-track animate-scroll">
+                
+                <div class="slide"><img src="images/kosme.jpg" alt="중진공"></div>
+                <div class="slide"><img src="images/kodit.jpg" alt="신보"></div>
+                <div class="slide"><img src="images/kibo.jpg" alt="기보"></div>
+                <div class="slide"><img src="images/kotra.png" alt="코트라"></div>
+                <div class="slide"><img src="images/kstratup.jpg" alt="K-Startup"></div>
+                <div class="slide"><img src="images/koreg.jpg" alt="신용보증재단"></div>
+                
+                <div class="slide"><img src="images/kosme.jpg" alt="중진공"></div>
+                <div class="slide"><img src="images/kodit.jpg" alt="신보"></div>
+                <div class="slide"><img src="images/kibo.jpg" alt="기보"></div>
+                <div class="slide"><img src="images/kotra.png" alt="코트라"></div>
+                <div class="slide"><img src="images/kstratup.jpg" alt="K-Startup"></div>
+                <div class="slide"><img src="images/koreg.jpg" alt="신용보증재단"></div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-dark text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="font-black text-xl text-white tracking-tighter">Growthme</span>
+            <p class="text-sm mt-4">
+                그로스미 경영컨설팅 | 대표: 김승혁 |<br>
+                Email: ceo@growthme.co.kr
+            </p>
+            <p class="text-xs mt-8 text-gray-600">© 2026 Growthme Consulting. All rights reserved.</p>
+        </div>
     </footer>
-  </div>
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+
+    <script>
+        AOS.init({ duration: 800, once: true });
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tabbtn;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tabbtn = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tabbtn.length; i++) {
+                tabbtn[i].className = tabbtn[i].className.replace(" active", "");
+                tabbtn[i].classList.remove("bg-brand-primary", "text-white");
+                tabbtn[i].classList.add("bg-gray-100", "text-gray-500");
+            }
+            document.getElementById(tabName).style.display = "block";
+            setTimeout(() => document.getElementById(tabName).classList.add("active"), 10);
+            
+            evt.currentTarget.classList.remove("bg-gray-100", "text-gray-500");
+            evt.currentTarget.classList.add("bg-brand-primary", "text-white");
+        }
+    </script>
 </body>
 </html>
